@@ -175,7 +175,7 @@ contract DetailedExchangeableERC20 is ExchangeableERC20 {
 
 
   function cancelBid(uint256 _id) public returns (bool) {
-    Ticker storage ticker = askTable[_id];
+    Ticker storage ticker = bidTable[_id];
     assert(ticker.addr != address(0));
     require(ticker.addr == msg.sender);
     msg.sender.transfer(ticker.amount);
